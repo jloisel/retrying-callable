@@ -27,6 +27,16 @@ public class RetryPoliciesTest {
 		assertEquals(RetryPolicyDecorator.class, RetryPolicies.never().getClass());
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void testAttemptsIllegalArgument() {
+		assertEquals(Attempts.class, RetryPolicies.attempts(-1).getClass());
+	}
+	
+	@Test
+	public void testAttempts() {
+		assertEquals(Attempts.class, RetryPolicies.attempts(1).getClass());
+	}
+	
 	@Test
 	public void testNever() {
 		assertEquals(false, RetryPolicies.never().apply(null));

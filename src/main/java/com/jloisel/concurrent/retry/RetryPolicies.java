@@ -22,6 +22,15 @@ public final class RetryPolicies {
 	private RetryPolicies() {
 		throw new IllegalAccessError();
 	}
+	
+	/**
+	 * Retry the task up to given attempts.
+	 * 
+	 * @param attempts attempts count
+	 */
+	public static <T> RetryPolicy<T> attempts(final int attempts) {
+		return new Attempts<>(attempts);
+	}
 
 	/**
 	 * Returns a {@link RetryPolicy} that never performs retries.
