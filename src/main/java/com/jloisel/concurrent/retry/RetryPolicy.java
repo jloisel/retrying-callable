@@ -1,7 +1,5 @@
 package com.jloisel.concurrent.retry;
 
-import java.util.concurrent.Callable;
-
 import com.google.common.base.Predicate;
 
 /**
@@ -9,7 +7,7 @@ import com.google.common.base.Predicate;
  * Implement this interface to create your own retry policy.
  * 
  * Retry policy may only throw unchecked exceptions. Any exception thrown 
- * is propagated to the caller of the retrying {@link Callable}.
+ * is propagated to the caller of the retrying callable.
  * 
  * Retry policy is not thread-safe until the implementation 
  * tells so. Therefore, sharing {@link RetryPolicy} 

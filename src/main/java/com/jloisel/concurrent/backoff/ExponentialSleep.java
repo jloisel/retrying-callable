@@ -5,8 +5,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.Nonnull;
-
 /**
  * {@link BackOffPolicy} that increases the back off sleep time 
  * between each retry attempt.
@@ -20,7 +18,7 @@ final class ExponentialSleep implements BackOffPolicy {
 	private long timeout;
 	private final long maxTimeout;
 	private final TimeUnit unit;
-	private @Nonnull BackOffPolicy sleep;
+	private BackOffPolicy sleep;
 	
 	/**
 	 * @param initialTimeout initial timeout
@@ -34,6 +32,7 @@ final class ExponentialSleep implements BackOffPolicy {
 			final long maxTimeout, 
 			final TimeUnit unit) {
 		super();
+		checkArgument(initialTimeout >= 0, "initial timeout must be >= 0, invalid: %s",initialTimeout);
 		this.timeout = initialTimeout;
 		checkArgument(maxTimeout >= initialTimeout, "max timeout '%s' should be >= to initial timeout '%s'", maxTimeout, initialTimeout);
 		this.maxTimeout = maxTimeout;

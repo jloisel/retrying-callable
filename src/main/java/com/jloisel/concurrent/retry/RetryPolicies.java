@@ -52,10 +52,9 @@ public final class RetryPolicies {
 	 * @return retry policy checking input class
 	 * @throws NullPointerException if {@code clazz} is {@code null}
 	 */
-	@SuppressWarnings("unchecked")
-	public static <T> RetryPolicy<T> instanceOf(final Class<T> clazz) {
+	public static RetryPolicy<Object> instanceOf(final Class<?> clazz) {
 		final Predicate<Object> instanceOf = Predicates.instanceOf(clazz);
-		return (RetryPolicy<T>) toRetryPolicy(instanceOf);
+		return toRetryPolicy(instanceOf);
 	}
 	
 	/**

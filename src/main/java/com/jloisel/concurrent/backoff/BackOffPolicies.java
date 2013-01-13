@@ -35,6 +35,8 @@ public final class BackOffPolicies {
 	 * 
 	 * @param timeout minimum timeout to sleep
 	 * @param unit timeout unit
+	 * @throws NullPointerException if {@code unit} is {@code null}
+	 * @throws IllegalArgumentException if {@code timeout} is < 0
 	 */
 	public static BackOffPolicy sleep(final long timeout, final TimeUnit unit) {
 		return new FixedSleep(timeout, unit);
@@ -48,8 +50,14 @@ public final class BackOffPolicies {
 	 * @param maxTimeout maximum timeout not to exceed
 	 * @param unit initial and maximum timeout unit
 	 * @return back off policy
+	 * @throws NullPointerException if {@code unnit} is {@code null}
+	 * @throws IllegalArgumentException if {@code initialTimeout} is < 0, 
+	 *         or {@code maxTimeout} < {@code initialTimeout}
 	 */
-	public static BackOffPolicy exponentialSleep(final long initialTimeout, final long maxTimeout, final TimeUnit unit) {
+	public static BackOffPolicy exponentialSleep(
+			final long initialTimeout, 
+			final long maxTimeout, 
+			final TimeUnit unit) {
 		return new ExponentialSleep(initialTimeout, maxTimeout, unit);
 	}
 }
