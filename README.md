@@ -11,4 +11,7 @@ Usage:
 	final Callable<T> callable = ...;
 	final RetryOnFailureCallableBuilder<T> b = new RetryOnFailureCallableBuilder<>(callable);
 	
-	final Callable<T> retrying = b.retry(attempts(3)).backoff(sleep(5, TimeUnit.SECONDS)).build();
+	final Callable<T> retrying = b
+		.retry(attempts(3))
+		.backoff(sleep(5, TimeUnit.SECONDS))
+		.build();
