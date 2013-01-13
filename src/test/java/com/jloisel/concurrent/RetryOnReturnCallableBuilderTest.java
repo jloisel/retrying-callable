@@ -5,6 +5,7 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import java.util.concurrent.Callable;
@@ -102,6 +103,6 @@ public class RetryOnReturnCallableBuilderTest {
 		
 		retrying.call();
 		verify(backOff).apply();
-		verify(callable).call();
+		verify(callable, times(2)).call();
 	}
 }

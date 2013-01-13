@@ -6,3 +6,7 @@
 *.prefs
 
 *.class
+
+*.lst
+
+target/*
