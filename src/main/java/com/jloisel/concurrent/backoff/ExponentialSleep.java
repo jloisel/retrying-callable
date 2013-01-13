@@ -24,7 +24,7 @@ final class ExponentialSleep implements BackOffPolicy {
 	 * @param initialTimeout initial timeout
 	 * @param maxTimeout maximum timeout
 	 * @param unit unit of timeout and maximum timeout
-	 * @throws IllegalArgumentException if {@code maxTimeout} < {@code initialTimeout}
+	 * @throws IllegalArgumentException if {@code maxTimeout} < {@code initialTimeout}, or {@code initialTimeout} < 0
 	 * @throws NullPointerException if {@code unit} is {@code null}
 	 */
 	ExponentialSleep(

@@ -52,6 +52,6 @@ public class BackOffPoliciesTest {
 	
 	@Test
 	public void testExpSleep() {
-		assertEquals(ExponentialSleep.class, BackOffPolicies.exponentialSleep(1, 1, TimeUnit.SECONDS).getClass());
+		assertEquals(ExponentialSleepTest.class, BackOffPolicies.exponentialSleep(1, 1, TimeUnit.SECONDS).getClass());
 	}
 }
