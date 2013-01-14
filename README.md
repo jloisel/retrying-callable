@@ -5,7 +5,7 @@ Wrap any Callable<T> to retry it with configurable retry and wait policies.
 
 Usage:
 
-	java
+```java
 		import static com.jloisel.concurrent.retry.RetryPolicies.*;
 		import static com.jloisel.concurrent.backoff.BackOffPolicies.*;
 		
@@ -16,3 +16,4 @@ Usage:
 			.retry(attempts(3))
 			.backoff(sleep(5, TimeUnit.SECONDS))
 			.build();
+```
