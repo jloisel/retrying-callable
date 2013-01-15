@@ -1,5 +1,6 @@
 package com.jloisel.concurrent.backoff;
 
+import static com.jloisel.unittest.UnitTests.assertNotInstantiable;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
@@ -15,6 +16,11 @@ import org.junit.Test;
  */
 public class BackOffPoliciesTest {
 
+	@Test
+	public void testNotInstantiable() {
+		assertNotInstantiable(BackOffPolicies.class);
+	}
+	
 	@Test
 	public void testImmediate() {
 		assertEquals(Immediate.INSTANCE, BackOffPolicies.immediate());

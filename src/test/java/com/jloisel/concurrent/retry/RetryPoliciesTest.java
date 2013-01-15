@@ -1,5 +1,6 @@
 package com.jloisel.concurrent.retry;
 
+import static com.jloisel.unittest.UnitTests.assertNotInstantiable;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertNotNull;
@@ -21,6 +22,11 @@ import com.google.common.base.Predicate;
  *
  */
 public class RetryPoliciesTest {
+	
+	@Test
+	public void testNotInstantiable() {
+		assertNotInstantiable(RetryPolicies.class);
+	}
 	
 	@Test
 	public void testNeverInstance() {
